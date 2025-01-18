@@ -1,0 +1,39 @@
+.add-course {
+    padding: 100px 0;
+    background: var(--primary-bg);
+    text-align: center;
+    width: 100%;
+}
+
+.add-course h1 {
+    color: var(--text-primary);
+    margin-bottom: 40px;
+}
+
+#add-course-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--purple-primary);
+}
+
+button {
+    background: var(--purple-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--pink-accent);
+}
