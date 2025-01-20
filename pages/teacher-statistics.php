@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/teacher-statistics.css">
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.php" class="logo">
@@ -30,11 +30,11 @@
         </div>
     </nav>
 
-    <!-- Statistics Section -->
+
     <section class="statistics">
         <h1>Your Statistics</h1>
         
-        <!-- Stats Cards -->
+
         <div class="stats-grid">
             <div class="stat-card">
                 <h3>Total Students</h3>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <!-- Popular Courses Chart -->
+
         <div class="chart-section">
             <h2>Most Popular Courses</h2>
             <div class="courses-chart">

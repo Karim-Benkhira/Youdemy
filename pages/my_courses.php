@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/my-courses.css">
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.php" class="logo">
@@ -30,18 +30,18 @@
         </div>
     </nav>
 
-    <!-- My Courses Section -->
+
     <section class="my-courses">
         <h1>My Courses</h1>
         <div class="courses-grid">
-            <!-- Example Course Card -->
+
             <div class="course-card">
                 <img src="../assets/images/courses/course1.jpg" alt="Course 1" class="course-image">
                 <h3 class="course-title">Web Development Bootcamp</h3>
                 <p class="course-instructor">by John Doe</p>
                 <a href="course-details.php" class="btn btn-primary">View Details</a>
             </div>
-            <!-- Add more course cards here -->
+
             <div class="course-card">
                 <img src="../assets/images/courses/course1.jpg" alt="Course 1" class="course-image">
                 <h3 class="course-title">Web Development Bootcamp</h3>

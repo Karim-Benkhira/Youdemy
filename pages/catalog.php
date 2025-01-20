@@ -30,7 +30,7 @@
         </div>
     </nav>
 
-    <!-- Course Catalog Section -->
+
     <section class="course-catalog">
         <h1>Course Catalog</h1>
         <div class="search-bar">
@@ -38,14 +38,14 @@
             <button id="search-button">Search</button>
         </div>
         <div class="courses-grid">
-            <!-- Example Course Card -->
+
             <div class="course-card">
                 <img src="../assets/images/courses/course1.jpg" alt="Course 1" class="course-image">
                 <h3 class="course-title">Web Development Bootcamp</h3>
                 <p class="course-instructor">by John Doe</p>
                 <a href="course-details.php" class="btn btn-primary">View Details</a>
             </div>
-            <!-- Add more course cards here -->
+
             <div class="course-card">
                 <img src="../assets/images/courses/course1.jpg" alt="Course 1" class="course-image">
                 <h3 class="course-title">Web Development Bootcamp</h3>

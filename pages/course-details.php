@@ -31,7 +31,7 @@
         </div>
     </nav>
 
-    <!-- Course Details Section -->
+
     <section class="course-details">
         <div class="course-header">
             <h1 class="course-title">Web Development Bootcamp</h1>

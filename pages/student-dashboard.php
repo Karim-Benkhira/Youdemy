@@ -5,7 +5,7 @@ require_once '../classes/User.php';
 require_once '../classes/Student.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../login.php');
+    header('Location: login.php');
     exit;
 }
 
@@ -29,7 +29,7 @@ $courses = $student->getDashboard();
     <link rel="stylesheet" href="../assets/css/student-dashboard.css">
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="../index.php" class="logo">
@@ -45,9 +45,9 @@ $courses = $student->getDashboard();
         </div>
     </nav>
 
-    <!-- Dashboard Section -->
+
     <section class="dashboard">
-    <h1>Welcome, <?php echo isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : 'Student'; ?></h1>
+    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></h1>
         <div class="stats">
             <div class="stat-card">
                 <h3>Total Courses Enrolled</h3>
@@ -79,7 +79,7 @@ $courses = $student->getDashboard();
 
     <footer class="footer">
         <div class="footer-container">
-            <p>&copy; 2023 Youdemy. All rights reserved.</p>
+            <p>&copy; 2025 Youdemy. All rights reserved.</p>
         </div>
     </footer>
 </body>
