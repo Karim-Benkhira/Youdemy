@@ -26,6 +26,9 @@ CREATE TABLE courses (
     FOREIGN KEY (teacher_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
+ALTER TABLE courses ADD COLUMN youtube_link VARCHAR(255) AFTER description;
+ALTER TABLE courses ADD COLUMN image VARCHAR(255) AFTER youtube_link, 
+ADD COLUMN content TEXT AFTER image;
 
 CREATE TABLE tags (
     id INT PRIMARY KEY AUTO_INCREMENT,
