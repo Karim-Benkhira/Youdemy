@@ -15,8 +15,8 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--primary-bg);
     background-image: 
-        radial-gradient(circle at 20% 20%, var(--purple-dark) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, var(--blue-accent) 0%, transparent 40%);
+    radial-gradient(circle at 20% 20%, var(--purple-dark) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, var(--blue-accent) 0%, transparent 40%);
     color: var(--text-primary);
     margin: 0;
     padding: 0;

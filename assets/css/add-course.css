@@ -1,39 +1,97 @@
-.add-course {
-    padding: 100px 0;
-    background: var(--primary-bg);
-    text-align: center;
-    width: 100%;
+:root {
+    --primary-bg: #100b27;
+    --text-primary: #e7e7e7;
+    --text-secondary: #878594;
+    --purple-primary: #9d2ae8;
+    --purple-dark: #510e86;
+    --blue-accent: #4495e7;
+    --purple-light: #cb86fd;
+    --pink-accent: #fe36c0;
+    --input-bg: rgba(231, 231, 231, 0.05);
+    --card-bg: rgba(16, 11, 39, 0.7);
 }
 
-.add-course h1 {
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-bg);
+    background-image: 
+    radial-gradient(circle at 40% 40%, var(--purple-dark) 0%, transparent 40%),
+    radial-gradient(circle at 70% 70%, var(--blue-accent) 0%, transparent 40%);
     color: var(--text-primary);
-    margin-bottom: 40px;
 }
 
-#add-course-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.form-container {
+    background-color: var(--card-bg); /* لون خلفية النموذج */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-input, textarea {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid var(--purple-primary);
+.form-container input, 
+.form-container textarea, 
+.form-container select {
+    width: 100%;
+    padding: 12px; /* زيادة التباعد الداخلي */
+    margin: 10px 0;
+    border: 1px solid var(--purple-light); /* لون الحدود */
+    border-radius: 5px;
+    background-color: var(--input-bg); /* لون خلفية الحقول */
+    color: var(--text-primary); /* لون النص */
+    font-size: 16px; /* حجم الخط */
+    box-sizing: border-box; /* تأكد من أن الحقول تأخذ التباعد الداخلي في العرض */
 }
 
-button {
+.form-container button {
     background: var(--purple-primary);
     color: var(--text-primary);
     border: none;
-    padding: 10px;
+    padding: 12px; /* زيادة التباعد الداخلي */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 16px; /* حجم الخط */
+    width: 100%; /* جعل الزر يأخذ العرض الكامل */
+}
+
+.form-container button:hover {
+    background: var(--pink-accent);
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.tag-item {
+    background-color: var(--blue-accent); /* لون الوسم */
+    color: var(--text-primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.tag-item button {
+    background: var(--purple-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 5px;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
-button:hover {
-    background: var(--pink-accent);
+.tag-item button:hover {
+    background: var(--pink-accent); /* تغيير اللون عند التمرير */
+}
+
+.choices__item {
+    background: var(--purple-primary);
+    color: var(--text-primary);
+}
+.choices__button{
+    background: var(--purple-primary);
 }

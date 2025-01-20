@@ -1,0 +1,122 @@
+/* admin-dashboard.css */
+
+/* إعدادات عامة */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg); /* استخدام اللون الأساسي */
+}
+
+.admin-container {
+    display: flex;
+}
+
+/* الشريط الجانبي */
+.admin-sidebar {
+    width: 250px;
+    background-color: var(--purple-dark); /* استخدام اللون الداكن */
+    color: var(--text-primary); /* استخدام لون النص الأساسي */
+    padding: 20px;
+}
+
+.admin-sidebar h2 {
+    text-align: center;
+}
+
+.admin-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.admin-sidebar nav ul li a {
+    color: var(--text-primary); /* استخدام لون النص الأساسي */
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.admin-sidebar nav ul li a:hover,
+.admin-sidebar nav ul li a.active {
+    background-color: var(--purple-light); /* استخدام اللون الفاتح */
+}
+
+/* المحتوى الرئيسي */
+.admin-main {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--card-bg); /* استخدام لون الخلفية للبطاقة */
+}
+
+.admin-main h1 {
+    margin-bottom: 20px;
+    color: var(--text-primary); /* استخدام لون النص الأساسي */
+}
+
+/* نموذج إضافة دورة */
+form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+}
+
+form input[type="text"],
+form textarea {
+    padding: 10px;
+    margin-bottom: 10px; /* إضافة مسافة بين العناصر */
+    border: 1px solid var(--text-secondary); /* استخدام لون النص الثانوي */
+    border-radius: 5px; /* زوايا دائرية */
+}
+
+form button {
+    background-color: var(--pink-accent); /* استخدام اللون الوردي */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px; /* زوايا دائرية */
+}
+
+form button:hover {
+    background-color: var(--purple-light); /* استخدام اللون الفاتح عند التمرير */
+}
+
+/* جدول الدورات */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid var(--text-secondary); /* استخدام لون النص الثانوي */
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--purple-primary); /* استخدام اللون الأرجواني */
+    color: var(--text-primary); /* استخدام لون النص الأساسي */
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية فاتحة */
+}
+
+table tr:hover {
+    background-color: var(--blue-accent); /* استخدام اللون الأزرق عند التمرير */
+}
+
+/* روابط الحذف */
+a {
+    color: var(--pink-accent); /* استخدام اللون الوردي */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* إضافة خط تحت الرابط عند التمرير */
+}

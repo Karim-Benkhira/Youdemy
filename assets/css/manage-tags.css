@@ -1,0 +1,66 @@
+/* manage-tags.css */
+
+/* تحسين تصميم صفحة إدارة الوسوم */
+.admin-main h1 {
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.admin-main form {
+    margin-bottom: 20px;
+}
+
+.admin-main ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-main ul li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-main input[type="text"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 5px;
+
+}
+
+.admin-main button {
+    padding: 10px 15px;
+    background-color: var(--purple-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-main button:hover {
+    background-color: var(--purple-light);
+}
+
+/* تصميم روابط التصفح */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: var(--purple-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: var(--purple-light);
+}
+
+.pagination a:hover {
+    background-color: var(--purple-light);
+}
