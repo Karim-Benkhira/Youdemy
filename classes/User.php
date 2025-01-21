@@ -67,11 +67,11 @@ abstract class User {
     }
 
     // Getters
-    //public function getId() { return $this->id; }
-    // public function getName() { return $this->name; }
-    //public function getEmail() { return $this->email; }
-    //public function getRole() { return $this->role; }
-    //public function getStatus() { return $this->status; }
+    public function getId() { return $this->id; }
+     //public function getName() { return $this->name; }
+    public function getEmail() { return $this->email; }
+    public function getRole() { return $this->role; }
+    public function getStatus() { return $this->status; }
     // Abstract methods that must be implemented by child classes
-    //abstract public function getDashboard();
+    abstract public function getDashboard();
 }

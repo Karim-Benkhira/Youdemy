@@ -1,11 +1,11 @@
 /* admin-dashboard.css */
 
-/* إعدادات عامة */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--primary-bg); /* استخدام اللون الأساسي */
+    background-color: var(--primary-bg);
 }
 
 .admin-container {
@@ -14,7 +14,7 @@ body {
     height: 100vh;
 }
 
-/* الشريط الجانبي */
+
 .admin-sidebar {
     width: 250px;
     background-color: var(--purple-dark);
@@ -47,7 +47,7 @@ body {
     background-color: var(--purple-light);
 }
 
-/* المحتوى الرئيسي */
+
 .admin-main {
     flex: 1;
     padding: 20px;
@@ -59,7 +59,6 @@ body {
     color: var(--text-primary);
 }
 
-/* بطاقات الإحصائيات */
 .admin-stats {
     display: flex;
     justify-content: space-between;
@@ -72,15 +71,15 @@ body {
     padding: 20px;
     border-radius: 10px;
     flex: 1;
-    margin: 0 10px; /* إضافة مسافة بين البطاقات */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل خفيف */
-    text-align: center; /* محاذاة النص في المنتصف */
-    transition: transform 0.3s, box-shadow 0.3s; /* تأثير الانتقال */
+    margin: 0 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .admin-stat-card:hover {
-    transform: translateY(-5px); /* رفع البطاقة عند التحويم */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* زيادة الظل عند التحويم */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .admin-stat-card h3 {
@@ -93,7 +92,7 @@ body {
     font-weight: bold;
 }
 
-/* جدول الدورات */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -119,7 +118,7 @@ table tr:hover {
     background-color: var(--blue-accent);
 }
 
-/* روابط الحذف */
+
 a {
     color: var(--pink-accent);
     text-decoration: none;

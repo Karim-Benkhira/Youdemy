@@ -67,27 +67,41 @@ class Course {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function update($id, $data) {
+    public function update($data) {
         try {
-            $query = "UPDATE courses 
-                     SET title = :title, 
-                         description = :description, 
-                         category_id = :category_id, 
-                         status = :status 
-                     WHERE id = :id";
-            
+            $query = "UPDATE courses SET title = :title, description = :description, youtube_link = :youtube_link, 
+                      image = :image, content = :content, category_id = :category 
+                      WHERE id = :id";
+    
             $stmt = $this->db->prepare($query);
             return $stmt->execute([
+                'id' => $data['id'],
                 'title' => $data['title'],
                 'description' => $data['description'],
-                'category_id' => $data['category_id'],
-                'status' => $data['status'],
-                'id' => $id
+                'youtube_link' => $data['youtube_link'],
+                'image' => $data['image'],
+                'content' => $data['content'],
+                'category' => $data['category']
             ]);
         } catch (PDOException $e) {
             error_log("Course update error: " . $e->getMessage());
             return false;
         }
+    }
+
+
+    public function getAllTags() {
+        $query = "SELECT * FROM tags";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getAllCategories() {
+        $query = "SELECT * FROM categories";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function delete($id) {
@@ -101,21 +115,28 @@ class Course {
         }
     }
 
-    public function getById($id) {
-        try {
-            $query = "SELECT c.*, u.name as teacher_name, cat.name as category_name 
-                     FROM courses c 
-                     JOIN users u ON c.teacher_id = u.id 
-                     JOIN categories cat ON c.category_id = cat.id 
-                     WHERE c.id = :id";
-            
-            $stmt = $this->db->prepare($query);
-            $stmt->execute(['id' => $id]);
-            return $stmt->fetch();
-        } catch (PDOException $e) {
-            error_log("Course retrieval error: " . $e->getMessage());
-            return null;
-        }
+    public function getCourseById($course_id) {
+        $query = "SELECT c.*, cat.name AS category_name 
+                  FROM courses c 
+                  JOIN categories cat ON c.category_id = cat.id 
+                  WHERE c.id = :course_id";
+    
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['course_id' => $course_id]);
+        $course = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $course['tags'] = $this->getTagsByCourseId($course_id);
+        return $course;
+    }
+
+
+    public function getTagsByCourseId($course_id) {
+        $query = "SELECT t.* FROM tags t 
+                JOIN course_tags ct ON t.id = ct.tag_id 
+                WHERE ct.course_id = :course_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['course_id' => $course_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAllPublished() {
@@ -133,4 +154,6 @@ class Course {
             return [];
         }
     }
+
+
 }

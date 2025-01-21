@@ -5,17 +5,18 @@ require_once '../classes/Teacher.php';
 session_start();
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'teacher') {
-    header('Location: ../login.php');
+    header('Location: login.php');
     exit();
 }
 
 $teacher = new Teacher();
 $teacherId = $_SESSION['user_id'];
 
-
-$teacherInfo = $teacher->getTeacherInfo($teacherId);
-
 $courses = $teacher->getDashboard();
+$teacherInfo = $teacher->getTeacherInfo($teacherId);
+$totalCourses = $teacher->getTotalCourses(); 
+$totalStudents = array_sum(array_column($courses, 'student_count'));
+
 ?>
 
 <!DOCTYPE html>
@@ -55,11 +56,11 @@ $courses = $teacher->getDashboard();
             <section class="dashboard-stats">
                 <div class="stat-card">
                     <h3>Total Courses</h3>
-                    <p><?php echo count($courses); ?></p>
+                    <p><?php echo $totalCourses; ?></p>
                 </div>
                 <div class="stat-card">
                     <h3>Total Students</h3>
-                    <p><?php echo array_sum(array_column($courses, 'student_count')); ?></p>
+                    <p><?php echo $totalStudents; ?></p>
                 </div>
             </section>
 

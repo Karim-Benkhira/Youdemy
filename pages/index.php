@@ -22,7 +22,7 @@
             </a>
             
             <div class="nav-links">
-                <a href="#courses">Courses</a>
+                <a href="catalog.php">Courses</a>
                 <a href="#categories">Categories</a>
                 <a href="#teachers">Teachers</a>
                 <a href="#about">About</a>

@@ -28,6 +28,23 @@ class Student extends User {
         }
     }
 
+    public function getStudentInfo($studentId) {
+        $query = "SELECT * FROM users WHERE id = :student_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['student_id' => $studentId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getEnrolledCourses($studentId) {
+        $query = "SELECT c.*, u.name AS teacher_name FROM courses c 
+                  JOIN enrollments e ON c.id = e.course_id 
+                  JOIN users u ON c.teacher_id = u.id 
+                  WHERE e.student_id = :student_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['student_id' => $studentId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function enrollCourse($courseId) {
         try {
             $query = "INSERT INTO enrollments (student_id, course_id) 
@@ -57,5 +74,15 @@ class Student extends User {
             error_log("Enrollment check error: " . $e->getMessage());
             return false;
         }
+    }
+
+    public function getAllCourses() {
+        $query = "SELECT c.*, u.name AS teacher_name, cat.name AS category_name 
+                  FROM courses c 
+                  JOIN users u ON c.teacher_id = u.id 
+                  JOIN categories cat ON c.category_id = cat.id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

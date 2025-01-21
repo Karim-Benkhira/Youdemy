@@ -5,74 +5,100 @@ class Teacher extends User {
         $this->role = 'teacher';
     }
 
+    // public function getDashboard() {
+    //     $query = "SELECT c.*, 
+    //                      COUNT(DISTINCT e.student_id) as student_count,
+    //                      cat.name as category_name 
+    //               FROM courses c 
+    //               LEFT JOIN enrollments e ON c.id = e.course_id 
+    //               JOIN categories cat ON c.category_id = cat.id 
+    //               WHERE c.teacher_id = :teacher_id 
+    //               GROUP BY c.id";
+
+    //     $stmt = $this->db->prepare($query);
+    //     $stmt->execute(['teacher_id' => $this->id]);
+    //     return $stmt->fetchAll();
+    // }
+
     public function getDashboard() {
         $query = "SELECT c.*, 
-                         COUNT(DISTINCT e.student_id) as student_count,
-                         cat.name as category_name 
+                         COUNT(DISTINCT e.student_id) AS student_count 
                   FROM courses c 
                   LEFT JOIN enrollments e ON c.id = e.course_id 
-                  JOIN categories cat ON c.category_id = cat.id 
                   WHERE c.teacher_id = :teacher_id 
                   GROUP BY c.id";
-
+    
         $stmt = $this->db->prepare($query);
         $stmt->execute(['teacher_id' => $this->id]);
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createCourse($data) {
-        try {
-            $query = "INSERT INTO courses (title, description, teacher_id, category_id) 
-                      VALUES (:title, :description, :teacher_id, :category_id)";
-
-            $stmt = $this->db->prepare($query);
-            return $stmt->execute([
-                'title' => $data['title'],
-                'description' => $data['description'],
-                'teacher_id' => $this->id,
-                'category_id' => $data['category_id']
-            ]);
-        } catch (PDOException $e) {
-            error_log("Course creation error: " . $e->getMessage());
-            return false;
-        }
+    public function getTotalCourses() {
+    
+        $query = "SELECT COUNT(*) AS total_courses 
+                  FROM courses 
+                  WHERE teacher_id = :teacher_id";
+    
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['teacher_id' => $_SESSION['user_id']]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $result['total_courses'];
     }
 
-    public function updateCourse($courseId, $data) {
-        try {
-            $query = "UPDATE courses 
-                      SET title = :title, 
-                          description = :description, 
-                          category_id = :category_id 
-                      WHERE id = :course_id AND teacher_id = :teacher_id";
+    // public function createCourse($data) {
+    //     try {
+    //         $query = "INSERT INTO courses (title, description, teacher_id, category_id) 
+    //                   VALUES (:title, :description, :teacher_id, :category_id)";
 
-            $stmt = $this->db->prepare($query);
-            return $stmt->execute([
-                'title' => $data['title'],
-                'description' => $data['description'],
-                'category_id' => $data['category_id'],
-                'course_id' => $courseId,
-                'teacher_id' => $this->id
-            ]);
-        } catch (PDOException $e) {
-            error_log("Course update error: " . $e->getMessage());
-            return false;
-        }
-    }
+    //         $stmt = $this->db->prepare($query);
+    //         return $stmt->execute([
+    //             'title' => $data['title'],
+    //             'description' => $data['description'],
+    //             'teacher_id' => $this->id,
+    //             'category_id' => $data['category_id']
+    //         ]);
+    //     } catch (PDOException $e) {
+    //         error_log("Course creation error: " . $e->getMessage());
+    //         return false;
+    //     }
+    // }
 
-    public function deleteCourse($courseId) {
-        try {
-            $query = "DELETE FROM courses WHERE id = :course_id AND teacher_id = :teacher_id";
-            $stmt = $this->db->prepare($query);
-            return $stmt->execute([
-                'course_id' => $courseId,
-                'teacher_id' => $this->id
-            ]);
-        } catch (PDOException $e) {
-            error_log("Course deletion error: " . $e->getMessage());
-            return false;
-        }
-    }
+    // public function updateCourse($courseId, $data) {
+    //     try {
+    //         $query = "UPDATE courses 
+    //                   SET title = :title, 
+    //                       description = :description, 
+    //                       category_id = :category_id 
+    //                   WHERE id = :course_id AND teacher_id = :teacher_id";
+
+    //         $stmt = $this->db->prepare($query);
+    //         return $stmt->execute([
+    //             'title' => $data['title'],
+    //             'description' => $data['description'],
+    //             'category_id' => $data['category_id'],
+    //             'course_id' => $courseId,
+    //             'teacher_id' => $this->id
+    //         ]);
+    //     } catch (PDOException $e) {
+    //         error_log("Course update error: " . $e->getMessage());
+    //         return false;
+    //     }
+    // }
+
+    // public function deleteCourse($courseId) {
+    //     try {
+    //         $query = "DELETE FROM courses WHERE id = :course_id AND teacher_id = :teacher_id";
+    //         $stmt = $this->db->prepare($query);
+    //         return $stmt->execute([
+    //             'course_id' => $courseId,
+    //             'teacher_id' => $this->id
+    //         ]);
+    //     } catch (PDOException $e) {
+    //         error_log("Course deletion error: " . $e->getMessage());
+    //         return false;
+    //     }
+    // }
 
     public function getCategories() {
         $query = "SELECT * FROM categories";

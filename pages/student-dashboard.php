@@ -38,9 +38,9 @@ $courses = $student->getDashboard();
             </a>
             <div class="nav-links">
                 <a href="student-dashboard.php">Dashboard</a>
-                <a href="../catalog.php">Courses</a>
-                <a href="../my_courses.php">My Courses</a>
-                <a href="../logout.php">Logout</a>
+                <a href="Student_catalog.php">Courses</a>
+                <a href="my_courses.php">My Courses</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>

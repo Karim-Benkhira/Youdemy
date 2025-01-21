@@ -1,6 +1,5 @@
 <?php
 require_once '../includes/init.php';
-require_once '../classes/Teacher.php';
 require_once '../classes/Course.php';
 
 session_start();
@@ -10,55 +9,38 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'teacher') {
     exit();
 }
 
-$teacher = new Teacher();
-$teacherId = $_SESSION['user_id'];
-
-
-$categories = $teacher->getCategories();
-$tags = $teacher->getTags();
-
+$course = new Course();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $data = [
-        'title' => $_POST['title'] ?? '',
-        'description' => $_POST['description'] ?? '',
-        'youtube_link' => $_POST['youtube_link'] ?? '',
-        'content' => $_POST['content'] ?? '',
-        'teacher_id' => $_SESSION['user_id'] ?? '',
-        'category' => $_POST['category'] ?? '',
+        'id' => $_POST['id'],
+        'title' => $_POST['title'],
+        'description' => $_POST['description'],
+        'youtube_link' => $_POST['youtube_link'],
+        'image' => $_POST['image'],
+        'content' => $_POST['content'],
+        'category' => $_POST['category'],
         'tags' => $_POST['tags'] ?? []
     ];
 
-    // if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-    //     $imageName = $_FILES['image']['name'];
-    //     $imageTmpName = $_FILES['image']['tmp_name'];
-    //     $imagePath = '../assets/images/courses/image_uploads/' . $imageName;
-    //     move_uploaded_file($imageTmpName, $imagePath);
-    //     $data['image'] = $imageName;
-    // }
 
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = '../assets/images/courses/image_upload/';
-        $uploadFile = $uploadDir . basename($_FILES['image']['name']);
-
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
-
-            $data['image'] = $uploadFile;
-        } else {
-
-            echo "Error uploading the file.";
-        }
-    } else {
-
-        echo "No file uploaded or there was an upload error.";
-    }
-
-    $course = new Course();
-    if ($course->create($data)) {
-        header('Location: teacher-dashboard.php');
+    if ($course->update($data)) {
+        header('Location: manage-courses.php');
         exit();
     } else {
-        $error = "Failed to add course.";
+        $error = "Failed to update course.";
+    }
+} else {
+
+    $course_id = $_GET['id'] ?? null;
+    if ($course_id) {
+        $courseData = $course->getCourseById($course_id);
+        $tags = $course->getAllTags();
+        $categories = $course->getAllCategories();
+    } else {
+        header('Location: manage-courses.php');
+        exit();
     }
 }
 ?>
@@ -68,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Course - Youdemy</title>
+    <title>Edit Course - Youdemy</title>
     <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
     <link rel="stylesheet" href="../assets/css/teacher-dashboard.css">
     <link rel="stylesheet" href="../assets/css/add-course.css">
@@ -91,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <main class="admin-main">
             <header class="dashboard-header">
                 <img src="../assets/images/logo.svg" alt="Youdemy Logo" class="logo">
-                <h1>Add New Course</h1>
+                <h1>Edit Course</h1>
             </header>
 
             <?php if (isset($error)): ?>
@@ -99,12 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
 
             <div class="form-container">
-                <form action="add-course.php" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="title" placeholder="Course Title" required>
-                    <textarea name="description" placeholder="Course Description" required></textarea>
-                    <input type="text" name="youtube_link" placeholder="YouTube Video Link" required>
+                <form action="edit-course.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($courseData['id']); ?>">
+                    <input type="text" name="title" value="<?php echo htmlspecialchars($courseData['title']); ?>" required>
+                    <textarea name="description" required><?php echo htmlspecialchars($courseData['description']); ?></textarea>
+                    <input type="text" name="youtube_link" placeholder="YouTube Video Link" value="<?php echo htmlspecialchars($courseData['youtube_link']); ?>" required>
                     <input type="file" name="image" accept="image/*" required>
-                    <textarea name="content" placeholder="Content" required></textarea>
+                    <textarea name="content" placeholder="Content" required><?php echo htmlspecialchars($courseData['content']); ?></textarea>
                     
                     <label for="tags">Select Tags:</label>
                     <select id="tag-select" name="tags[]" multiple required>
@@ -121,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php endforeach; ?>
                     </select>
                     
-                    <button type="submit">Add New Course</button>
+                    <button type="submit">Update Course</button>
                 </form>
             </div>
         </main>

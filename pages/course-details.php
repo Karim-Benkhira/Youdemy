@@ -57,7 +57,7 @@
 
 <footer class="footer">
     <div class="footer-container">
-        <p>&copy; 2023 Youdemy. All rights reserved.</p>
+        <p>&copy; 2025 Youdemy. All rights reserved.</p>
         <div class="footer-links">
             <a href="about.php">About Us</a>
             <a href="privacy.php">Privacy Policy</a>

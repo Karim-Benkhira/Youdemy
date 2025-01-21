@@ -21,7 +21,7 @@ body {
 }
 
 .form-container {
-    background-color: var(--card-bg); /* لون خلفية النموذج */
+    background-color: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -32,26 +32,26 @@ body {
 .form-container textarea, 
 .form-container select {
     width: 100%;
-    padding: 12px; /* زيادة التباعد الداخلي */
+    padding: 12px;
     margin: 10px 0;
-    border: 1px solid var(--purple-light); /* لون الحدود */
+    border: 1px solid var(--purple-light);
     border-radius: 5px;
-    background-color: var(--input-bg); /* لون خلفية الحقول */
-    color: var(--text-primary); /* لون النص */
-    font-size: 16px; /* حجم الخط */
-    box-sizing: border-box; /* تأكد من أن الحقول تأخذ التباعد الداخلي في العرض */
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .form-container button {
     background: var(--purple-primary);
     color: var(--text-primary);
     border: none;
-    padding: 12px; /* زيادة التباعد الداخلي */
+    padding: 12px;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease;
-    font-size: 16px; /* حجم الخط */
-    width: 100%; /* جعل الزر يأخذ العرض الكامل */
+    font-size: 16px;
+    width: 100%;
 }
 
 .form-container button:hover {
@@ -65,7 +65,7 @@ body {
 }
 
 .tag-item {
-    background-color: var(--blue-accent); /* لون الوسم */
+    background-color: var(--blue-accent);
     color: var(--text-primary);
     padding: 5px 10px;
     border-radius: 5px;
@@ -85,7 +85,7 @@ body {
 }
 
 .tag-item button:hover {
-    background: var(--pink-accent); /* تغيير اللون عند التمرير */
+    background: var(--pink-accent);
 }
 
 .choices__item {

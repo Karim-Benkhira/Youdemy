@@ -1,22 +1,22 @@
 /* admin-dashboard.css */
 
-/* إعدادات عامة */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--primary-bg); /* استخدام اللون الأساسي */
+    background-color: var(--primary-bg);
 }
 
 .admin-container {
     display: flex;
 }
 
-/* الشريط الجانبي */
+
 .admin-sidebar {
     width: 250px;
-    background-color: var(--purple-dark); /* استخدام اللون الداكن */
-    color: var(--text-primary); /* استخدام لون النص الأساسي */
+    background-color: var(--purple-dark);
+    color: var(--text-primary);
     padding: 20px;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 .admin-sidebar nav ul li a {
-    color: var(--text-primary); /* استخدام لون النص الأساسي */
+    color: var(--text-primary);
     text-decoration: none;
     padding: 10px;
     display: block;
@@ -42,22 +42,22 @@ body {
 
 .admin-sidebar nav ul li a:hover,
 .admin-sidebar nav ul li a.active {
-    background-color: var(--purple-light); /* استخدام اللون الفاتح */
+    background-color: var(--purple-light);
 }
 
-/* المحتوى الرئيسي */
+
 .admin-main {
     flex: 1;
     padding: 20px;
-    background-color: var(--card-bg); /* استخدام لون الخلفية للبطاقة */
+    background-color: var(--card-bg);
 }
 
 .admin-main h1 {
     margin-bottom: 20px;
-    color: var(--text-primary); /* استخدام لون النص الأساسي */
+    color: var(--text-primary);
 }
 
-/* نموذج إضافة فئة */
+
 form {
     margin-bottom: 20px;
 }
@@ -69,7 +69,7 @@ form input[type="text"] {
 }
 
 form button {
-    background-color: var(--pink-accent); /* استخدام اللون الوردي */
+    background-color: var(--pink-accent);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -77,10 +77,10 @@ form button {
 }
 
 form button:hover {
-    background-color: var(--purple-light); /* استخدام اللون الفاتح عند التمرير */
+    background-color: var(--purple-light);
 }
 
-/* جدول الفئات */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -88,54 +88,53 @@ table {
 }
 
 table th, table td {
-    border: 1px solid var(--text-secondary); /* استخدام لون النص الثانوي */
+    border: 1px solid var(--text-secondary);
     padding: 10px;
     text-align: left;
 }
 
 table th {
-    background-color: var(--purple-primary); /* استخدام اللون الأرجواني */
-    color: var(--text-primary); /* استخدام لون النص الأساسي */
+    background-color: var(--purple-primary);
+    color: var(--text-primary);
 }
 
 table tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1); /* خلفية فاتحة */
-}
+    background-color: rgba(255, 255, 255, 0.1); }
 
 table tr:hover {
-    background-color: var(--blue-accent); /* استخدام اللون الأزرق عند التمرير */
+    background-color: var(--blue-accent);
 }
 
-/* روابط الحذف */
+
 a {
-    color: var(--pink-accent); /* استخدام اللون الوردي */
+    color: var(--pink-accent);
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* إضافة خط تحت الرابط عند التمرير */
+    text-decoration: underline;
 }
 
-/* تحسين لون النص */
+
 table th, table td {
-    color: #e7e7e7; /* لون النص */
+    color: #e7e7e7;
 }
 
-/* تحسين الأزرار */
+
 button {
-    background-color: var(--pink-accent); /* استخدام اللون الوردي */
+    background-color: var(--pink-accent);
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    transition: background-color 0.3s; /* تأثير عند التمرير */
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: var(--purple-light); /* لون عند التمرير */
+    background-color: var(--purple-light);
 }
 
-/* تحسين خلفية الجدول */
+
 table tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1); /* خلفية فاتحة */
+    background-color: rgba(255, 255, 255, 0.1);
 }
