@@ -37,8 +37,10 @@ $courses = $student->getEnrolledCourses($_SESSION['user_id']); // استخدام
             <div class="nav-links">
                 <a href="student-dashboard.php">Dashboard</a>
                 <a href="Student_catalog.php">All Course</a>
-                <a href="teachers.php">Teachers</a>
+                <a href="my_courses.php">My Courses</a>
+                <a href="student-teachers.php">Teachers</a>
                 <a href="about.php">About</a>
+                <a href="../includes/logout.php">Logout</a>
             </div>
         </div>
     </nav>
@@ -79,7 +81,7 @@ $courses = $student->getEnrolledCourses($_SESSION['user_id']); // استخدام
                         <h3 class="course-title"><?php echo htmlspecialchars($course['title']); ?></h3>
                         <p class="course-instructor">by <?php echo htmlspecialchars($course['teacher_name']); ?></p>
                         <form method="POST" action="">
-                        <button href="course-details.php?id=<?php echo $course['id']; ?>" class="btn btn-primary">View Details</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='view_course.php?id=<?php echo $course['id']; ?>'">View Course</button>
                         </form>
                     </div>
             <?php endforeach; ?>

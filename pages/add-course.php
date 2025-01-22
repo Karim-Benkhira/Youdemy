@@ -77,7 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="dashboard-container">
         <aside class="admin-sidebar">
-            <h2>Youdemy</h2>
+            <div class="admin-logo">
+                <img src="../assets/images/logo.svg" alt="Youdemy Logo">
+                <h2>Youdemy</h2>
+            </div>
             <nav>
                 <ul>
                     <li><a href="teacher-dashboard.php">Dashboard</a></li>
@@ -102,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <form action="add-course.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="title" placeholder="Course Title" required>
                     <textarea name="description" placeholder="Course Description" required></textarea>
-                    <input type="text" name="youtube_link" placeholder="YouTube Video Link" required>
+                    <input type="url" name="youtube_link" placeholder="YouTube Video Link" required>
                     <input type="file" name="image" accept="image/*" required>
                     <textarea name="content" placeholder="Content" required></textarea>
                     

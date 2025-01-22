@@ -25,6 +25,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
 
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = '../assets/images/courses/image_upload/';
+        $uploadFile = $uploadDir . basename($_FILES['image']['name']);
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+
+            $data['image'] = $uploadFile;
+        } else {
+
+            echo "Error uploading the file.";
+        }
+    } else {
+
+        echo "No file uploaded or there was an upload error.";
+    }
+
+
     if ($course->update($data)) {
         header('Location: manage-courses.php');
         exit();

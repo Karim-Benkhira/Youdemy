@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../assets/css/categories.css">
     <link rel="stylesheet" href="../assets/css/featured-courses.css">
     <link rel="stylesheet" href="../assets/css/popular-teachers.css">
+    
 </head>
 <body>
 
@@ -189,6 +190,10 @@
         </div>
     </div>
 </section>
+
+
+
+
     
 </body>
 </html>

@@ -1,34 +1,5 @@
 <?php
-require_once '../includes/init.php';
-require_once '../classes/Student.php';
-
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit();
-}
-
-
-$student = new Student();
-$student->setId($_SESSION['user_id']);
-$courses = $student->getAllCourses();
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $courseId = $_POST['course_id'] ?? null;
-
-    if ($courseId) {
-        if (!$student->isEnrolled($courseId)) {
-            $student->enrollCourse($courseId);
-            $message = "You have successfully subscribed to the course!";
-        } else {
-            $message = "You are already enrolled in this course.";
-        }
-    } else {
-        $message = "Invalid course ID.";
-    }
-}
+require_once '../includes/process_Student_catalog.php';
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>Youdemy</span>
             </a>
             <div class="nav-links">
-                <a href="catalog.php">Courses</a>
-                <a href="categories.php">Categories</a>
+                <a href="student-dashboard.php">Dashboard</a>
+                <a href="Student_catalog.php">All Course</a>
+                <a href="my_courses.php">My Courses</a>
                 <a href="teachers.php">Teachers</a>
                 <a href="about.php">About</a>
+                <a href="../includes/logout.php">Logout</a>
             </div>
         </div>
     </nav>

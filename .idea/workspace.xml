@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63134da9-779c-4189-a092-cf99393e9033" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/Teacher-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/Teacher-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/add-course.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/add-course.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/admin-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/admin-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/admin-manage-courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/admin-manage-courses.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/admin-statistics.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/admin-statistics.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/manage-categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/manage-categories.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/manage-tags.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/manage-tags.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/manage-users.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/manage-users.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Teacher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/process_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/process_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student_catalog.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student_catalog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Teacher-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Teacher-dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/add-course.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add-course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/course-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course-details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/courses/create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/courses/list.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/courses/view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/edit-course.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/edit-course.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage-courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manage-courses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/my_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/my_courses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/student-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student-dashboard.php" afterDir="false" />
     </list>
@@ -90,7 +83,9 @@
       <workItem from="1737395365133" duration="2215000" />
       <workItem from="1737406464549" duration="1568000" />
       <workItem from="1737462926593" duration="1690000" />
-      <workItem from="1737482108292" duration="1350000" />
+      <workItem from="1737482108292" duration="1595000" />
+      <workItem from="1737501866397" duration="610000" />
+      <workItem from="1737544778931" duration="5544000" />
     </task>
     <servers />
   </component>

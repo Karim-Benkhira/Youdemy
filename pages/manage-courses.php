@@ -75,7 +75,10 @@ $courses = $course->getAllCoursesByTeacher($_SESSION['user_id']);
 <body>
     <div class="dashboard-container">
         <aside class="admin-sidebar">
-            <h2>Youdemy</h2>
+            <div class="admin-logo">
+                <img src="../assets/images/logo.svg" alt="Youdemy Logo">
+                <h2>Youdemy</h2>
+            </div>
             <nav>
                 <ul>
                     <li><a href="teacher-dashboard.php">Dashboard</a></li>

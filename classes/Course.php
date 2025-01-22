@@ -155,5 +155,12 @@ class Course {
         }
     }
 
+    public function searchCourses($searchTerm) {
+        $query = "SELECT * FROM courses WHERE title LIKE :searchTerm";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['searchTerm' => '%' . $searchTerm . '%']);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }

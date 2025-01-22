@@ -11,9 +11,15 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'teacher') {
 
 $teacher = new Teacher();
 $teacherId = $_SESSION['user_id'];
+$teacherInfo = $teacher->getTeacherInfo($teacherId);
+
+
+if (!$teacherInfo || $teacherInfo['status'] === 'pending') {
+    header('Location: 403.php');
+    exit();
+}
 
 $courses = $teacher->getDashboard();
-$teacherInfo = $teacher->getTeacherInfo($teacherId);
 $totalCourses = $teacher->getTotalCourses(); 
 $totalStudents = array_sum(array_column($courses, 'student_count'));
 
